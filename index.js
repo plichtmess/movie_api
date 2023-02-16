@@ -1,3 +1,7 @@
+const express = require('express'),
+
+const app = express();
+
 // top 10 movies JSON object
 let topTenMovies = [
     {
