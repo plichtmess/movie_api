@@ -2,6 +2,9 @@ const express = require('express'),
 
 const app = express();
 
+// serving all static files from public folder
+app.use(express.static(__dirname + '/public'));
+
 // top 10 movies JSON object
 let topTenMovies = [
     {
