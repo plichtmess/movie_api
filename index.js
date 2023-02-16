@@ -58,3 +58,9 @@ app.get('/', (req, res) => {
     res.send('Welcome to your personal movie collection!');
 });
 
+//error handling middleware function
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Error detected!');
+});
+
