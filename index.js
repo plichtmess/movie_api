@@ -1,6 +1,10 @@
 const express = require('express'),
+morgan = require('morgan');
 
 const app = express();
+
+// logging requests via morgan
+app.use(morgan('common'));
 
 // serving all static files from public folder
 app.use(express.static(__dirname + '/public'));
