@@ -127,6 +127,13 @@ app.get('/genres/:name', (req, res) => {
         return genre.name === req.params.name
     }));
 });
+
+// Return data about a director (bio, birth year, death year) by name
+app.get('/directors/:name', (req, res) => {
+    res.json(directors.find((director) => {
+        return director.name === req.params.name
+    }));
+});
 //error handling middleware function
 app.use((err, req, res, next) => {
     console.error(err.stack);
