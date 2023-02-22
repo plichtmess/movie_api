@@ -163,6 +163,11 @@ app.put('/users/:name', (req, res) => {
     }
 });
 
+// Allow users to add a movie to their list of favorites
+app.post('/users/:name/favorites', (req, res) => {
+    res.send('Movie has been added to your favorites!');
+});
+
 //error handling middleware function
 app.use((err, req, res, next) => {
     console.error(err.stack);
