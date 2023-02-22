@@ -114,6 +114,12 @@ app.get('/users', (req, res) => {
     res.json(users);
 });
 
+// Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user
+app.get('/movies/:title', (req, res) => {
+    res.json(movies.find((movie) => {
+        return movie.title === req.params.title
+    }));
+});
 //error handling middleware function
 app.use((err, req, res, next) => {
     console.error(err.stack);
