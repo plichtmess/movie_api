@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 // serving all static files from public folder
 app.use(express.static(__dirname + '/public'));
 
-// top 10 movies JSON object
-let topTenMovies = [
+// movies JSON object
+let movies = [
     {
         title: 'The Godfather',
         director: 'Francis Ford Coppola'
