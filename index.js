@@ -120,6 +120,13 @@ app.get('/movies/:title', (req, res) => {
         return movie.title === req.params.title
     }));
 });
+
+// Return data about a genre (description) by name/title (e.g., “Thriller”)
+app.get('/genres/:name', (req, res) => {
+    res.json(genres.find((genre) => {
+        return genre.name === req.params.name
+    }));
+});
 //error handling middleware function
 app.use((err, req, res, next) => {
     console.error(err.stack);
