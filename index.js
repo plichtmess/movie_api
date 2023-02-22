@@ -168,6 +168,11 @@ app.post('/users/:name/favorites', (req, res) => {
     res.send('Movie has been added to your favorites!');
 });
 
+// Allow users to remove a movie from their list of favorites
+app.delete('/users/:name/favorites', (req, res) => {
+    res.send('Movie has been deleted from your favorites');
+});
+
 //error handling middleware function
 app.use((err, req, res, next) => {
     console.error(err.stack);
