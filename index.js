@@ -98,6 +98,8 @@ let directors = [
     }
 ];
 
+// users JSON object
+let users = [];
 
 app.get('/', (req, res) => {
     res.send('Welcome to your personal movie collection!');
