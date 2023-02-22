@@ -84,6 +84,20 @@ let genres = [
     }
 ];
 
+// directors JSON object
+let directors = [
+    {
+        name: 'Francis Ford Coppola',
+        born: 'April 7, 1939',
+        bio: "Francis Ford Coppola is an American film director, producer, and screenwriter. He is considered one of the major figures of the New Hollywood filmmaking movement of the 1960s and 1970s.[5] Coppola is the recipient of five Academy Awards, six Golden Globe Awards, two Palmes d'Or, and a British Academy Film Award (BAFTA)."
+    },
+    {
+        name: 'Martin Scorsese',
+        born: 'November 17, 1942',
+        bio: 'Martin Scorsese is an American film director, producer, screenwriter and actor. Scorsese emerged as one of the major figures of the New Hollywood era. He is the recipient of many major accolades, including an Academy Award, four BAFTA Awards, three Emmy Awards, a Grammy Award, three Golden Globe Awards, and two Directors Guild of America Awards.'
+    }
+];
+
 
 app.get('/', (req, res) => {
     res.send('Welcome to your personal movie collection!');
