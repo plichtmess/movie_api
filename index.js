@@ -105,6 +105,10 @@ app.get('/', (req, res) => {
     res.send('Welcome to your personal movie collection!');
 });
 
+// Return a list of ALL movies to the user
+app.get('/movies', (req, res) => {
+    res.json(movies);
+});
 //error handling middleware function
 app.use((err, req, res, next) => {
     console.error(err.stack);
