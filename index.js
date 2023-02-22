@@ -109,6 +109,11 @@ app.get('/', (req, res) => {
 app.get('/movies', (req, res) => {
     res.json(movies);
 });
+
+app.get('/users', (req, res) => {
+    res.json(users);
+});
+
 //error handling middleware function
 app.use((err, req, res, next) => {
     console.error(err.stack);
