@@ -134,6 +134,20 @@ app.get('/directors/:name', (req, res) => {
         return director.name === req.params.name
     }));
 });
+
+// Allow new users to register
+app.post('/users', (req, res) => {
+    let newUser = req.body;
+
+    if (!newUser.name) {
+        const message = 'Username missing in request body';
+        res.status(400).send(message);
+    } else {
+        newUser.id = uuid.v4();
+        users.push(newUser);
+        res.status(201).send(newUser);
+    }
+});
 //error handling middleware function
 app.use((err, req, res, next) => {
     console.error(err.stack);
