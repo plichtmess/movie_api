@@ -8,6 +8,9 @@ const app = express();
 // logging requests via morgan
 app.use(morgan('common'));
 
+// body-parser
+app.use(bodyParser.json());
+
 // serving all static files from public folder
 app.use(express.static(__dirname + '/public'));
 
