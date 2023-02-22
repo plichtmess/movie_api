@@ -18,43 +18,53 @@ app.use(express.static(__dirname + '/public'));
 let movies = [
     {
         title: 'The Godfather',
-        director: 'Francis Ford Coppola'
+        director: 'Francis Ford Coppola',
+        genre: 'Crime'
     },
     {
         title: 'The Departed',
-        director: 'Martin Scorcese'
+        director: 'Martin Scorcese',
+        genre: 'Thriller'
     },
     {
         title: 'Road to Perdition',
-        director: 'Sam Mendes'
+        director: 'Sam Mendes',
+        genre: 'Drama'
     },
     {
         title: 'Heat',
-        director: 'Michael Mann'
+        director: 'Michael Mann',
+        genre: 'Drama'
     },
     {
         title: 'Casino',
-        director: 'Martin Scorsese'
+        director: 'Martin Scorsese',
+        genre: 'Crime'
     },
     {
         title: 'Goodfellas',
-        director: 'Martin Scorsese'
+        director: 'Martin Scorsese',
+        genre: 'Crime'
     },
     {
         title: 'American Gangster',
-        director: 'Ridley Scott'
+        director: 'Ridley Scott',
+        genre: 'Drama'
     },
     {
         title: 'Reservoir Dogs',
-        director: 'Quentin Tarantino'
+        director: 'Quentin Tarantino',
+        genre: 'Crime'
     },
     {
         title: 'Pulp Fiction',
-        director: 'Quentin Tarantino'
+        director: 'Quentin Tarantino',
+        genre: 'Crime'
     },
     {
         title: 'Scarface',
-        director: 'Brian De Palma'
+        director: 'Brian De Palma',
+        genre: 'Drama'
     }
 ];
 
