@@ -1,11 +1,105 @@
 <!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+        <title>MOVIE REST API DOCUMENTATION</title>
+    </head>
 
-<body>
+    <body>
 
-    <h1>Movie App</h1>
+        <h1>Movie App REST API Documentation</h1>
     
-    <main>
-        <p>To build the server-side component of a “movies” web application. The web application will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create a list of their favorite movies.</p>
-    </main>
+        <main>
+            <p class="about">The goal is to build the server-side component of a “movies” web application. The web application will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create a list of their favorite movies.</p>
+            <br>
+            <div class="table_div">
+                <table>
+                    <tr>
+                        <th>REQUEST</th>
+                        <th>URL</th>
+                        <th>HTTP METHOD</th>
+                        <th>QUERY PARAMETERS</th>
+                        <th>REQUEST BODY DATA</th>
+                        <th>RESPONSE BODY DATA</th>
+                    </tr>
+                    <tr>
+                        <td>Return a list of ALL movies to the user</td>
+                        <td>/movies</td>
+                        <td>GET</td>
+                        <td>none</td>
+                        <td>none</td>
+                        <td>JSON Object</td>
+                    </tr>
+                    <tr>
+                        <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</td>
+                        <td>/movies/:title</td>
+                        <td>GET</td>
+                        <td>:title</td>
+                        <td>none</td>
+                        <td>JSON Object</td>
+                    </tr>
+                    <tr>
+                        <td>Return data about a genre (description) by name/title (e.g., “Thriller”)</td>
+                        <td>/genres/:name</td>
+                        <td>GET</td>
+                        <td>:name</td>
+                        <td>none</td>
+                        <td>JSON Object</td>
+                    </tr>
+                    <tr>
+                        <td>Return data about a director (bio, birth year, death year) by name</td>
+                        <td>/directors/:name</td>
+                        <td>GET</td>
+                        <td>:name</td>
+                        <td>none</td>
+                        <td>JSON Object</td>
+                    </tr>
+                    <tr>
+                        <td>Allow new users to register</td>
+                        <td>/users</td>
+                        <td>POST</td>
+                        <td>none</td>
+                        <td>JSON Object<br>Example:<br>{"Name": "", "Birthday": ""}</td>
+                        <td>JSON Object</td>
+                    </tr>
+                    <tr>
+                        <td>Allow users to update their user info (username)</td>
+                        <td>/users/:name</td>
+                        <td>PUT</td>
+                        <td>:name</td>
+                        <td>none</td>
+                        <td>Response Message</td>
+                    </tr>
+                    <tr>
+                        <td>Allow users to add a movie to their list of favorites</td>
+                        <td>/users/:name/favorites</td>
+                        <td>POST</td>
+                        <td>:name</td>
+                        <td>none</td>
+                        <td>Response Message</td>
+                    </tr>
+                    <tr>
+                        <td>Allow users to remove a movie from their list of favorites</td>
+                        <td>/users/:name/favorites</td>
+                        <td>DELETE</td>
+                        <td>:name</td>
+                        <td>none</td>
+                        <td>Response Message</td>
+                    </tr>
+                    <tr>
+                        <td>Allow existing users to deregister</td>
+                        <td>/users/:name</td>
+                        <td>DELETE</td>
+                        <td>:name</td>
+                        <td>none</td>
+                        <td>Response Message</td>
+                    </tr>
+                </table>
+            </div>
+        </main>
 
-</body>
+    </body>
+</html>
