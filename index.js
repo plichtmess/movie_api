@@ -68,10 +68,6 @@ let movies = [
     }
 ];
 
-// GET requests
-app.get('/movies', (reg, res) => {
-    res.json(topTenMovies);
-});
 
 app.get('/', (req, res) => {
     res.send('Welcome to your personal movie collection!');
