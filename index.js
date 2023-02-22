@@ -173,6 +173,11 @@ app.delete('/users/:name/favorites', (req, res) => {
     res.send('Movie has been deleted from your favorites');
 });
 
+// Allow existing users to deregister
+app.delete('/users/:name', (req, res) => {
+    res.send('User has been deleted');
+});
+
 //error handling middleware function
 app.use((err, req, res, next) => {
     console.error(err.stack);
