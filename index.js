@@ -148,6 +148,21 @@ app.post('/users', (req, res) => {
         res.status(201).send(newUser);
     }
 });
+
+// Allow users to update their user info (username)
+app.put('/users/:name', (req, res) => {
+    let user = users.find((user) => {
+        return user.name === req.params.name
+    });
+
+    if (user) {
+        user.name[req.params.name] = parseInt(req.params.name);
+        res.status(201).send('Username successfully updated');
+    } else {
+        res.status(404).send('Username error');
+    }
+});
+
 //error handling middleware function
 app.use((err, req, res, next) => {
     console.error(err.stack);
