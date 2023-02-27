@@ -4,7 +4,8 @@ bodyParser = require('body-parser'),
 uuid = require('uuid'),
 mongoose = require('mongoose');
 
-const app = express();
+// require models.js file
+const Models = require('./models.js');
 
 // logging requests via morgan
 app.use(morgan('common'));
