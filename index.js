@@ -7,8 +7,11 @@ mongoose = require('mongoose');
 // require models.js file
 const Models = require('./models.js');
 
-// logging requests via morgan
-app.use(morgan('common'));
+// require models
+const Movies = Models.Movie;
+const Users = Models.User;
+const Genres = Models.Genre;
+
 
 // body-parser
 app.use(bodyParser.json());
