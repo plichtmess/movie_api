@@ -20,6 +20,10 @@ const app = express();
 
 // body-parser
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// logging requests via morgan
+app.use(morgan('common'));
 
 // serving all static files from public folder
 app.use(express.static(__dirname + '/public'));
