@@ -2,6 +2,7 @@ const express = require('express'),
 morgan = require('morgan'),
 bodyParser = require('body-parser'),
 uuid = require('uuid'),
+mongoose = require('mongoose');
 
 const app = express();
 
