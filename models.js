@@ -36,3 +36,6 @@ let genreSchema = mongoose.Schema({
     Description: {type: String, required: true}
 });
 
+let Movie = mongoose.model('Movie', movieSchema);
+let User = mongoose.model('User', userSchema);
+let Genre = mongoose.model('Genre', genreSchema);
