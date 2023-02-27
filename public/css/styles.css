@@ -33,3 +33,17 @@ th {
     width: 50%;
     text-align: center;
 }
+
+.indentation {
+    margin-left: 50px;
+    text-align: left;
+}
+
+.body_data {
+    min-width: 250px;
+}
+
+.cell {
+    text-align: left;
+    margin-left: 10px;
+}
