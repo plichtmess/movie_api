@@ -22,7 +22,7 @@
                         <th>URL</th>
                         <th>HTTP METHOD</th>
                         <th>QUERY PARAMETERS</th>
-                        <th>REQUEST BODY DATA</th>
+                        <th class="body_data">REQUEST BODY DATA</th>
                         <th>RESPONSE BODY DATA</th>
                     </tr>
                     <tr>
@@ -35,25 +35,25 @@
                     </tr>
                     <tr>
                         <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</td>
-                        <td>/movies/:title</td>
+                        <td>/movies/:Title</td>
                         <td>GET</td>
-                        <td>:title</td>
+                        <td>:Title</td>
                         <td>none</td>
                         <td>JSON Object</td>
                     </tr>
                     <tr>
                         <td>Return data about a genre (description) by name/title (e.g., “Thriller”)</td>
-                        <td>/genres/:name</td>
+                        <td>/genres/:Name</td>
                         <td>GET</td>
-                        <td>:name</td>
+                        <td>:Name</td>
                         <td>none</td>
                         <td>JSON Object</td>
                     </tr>
                     <tr>
                         <td>Return data about a director (bio, birth year, death year) by name</td>
-                        <td>/directors/:name</td>
+                        <td>/directors/:Name</td>
                         <td>GET</td>
-                        <td>:name</td>
+                        <td>:Name</td>
                         <td>none</td>
                         <td>JSON Object</td>
                     </tr>
@@ -62,38 +62,61 @@
                         <td>/users</td>
                         <td>POST</td>
                         <td>none</td>
-                        <td>JSON Object<br>Example:<br>{"Name": "", "Birthday": ""}</td>
+                        <td>JSON Object<br><br>Example:
+                            <p>
+                                {<br>
+                                ID: Integer,<br>
+                                Username: String,<br>
+                                Password: String,<br>
+                                Email: String,<br>
+                                Birthday: Date<br>
+                                }
+                            </p>
+                        </td>
                         <td>JSON Object</td>
                     </tr>
                     <tr>
                         <td>Allow users to update their user info (username)</td>
-                        <td>/users/:name</td>
+                        <td>/users/:Username</td>
                         <td>PUT</td>
-                        <td>:name</td>
-                        <td>none</td>
-                        <td>Response Message</td>
+                        <td>:Username</td>
+                        <td>
+                            JSON Object<br><br>Example:
+                            <p>
+                                {<br>
+                                Username: String,<br>
+                                (required)<br>
+                                Password: String,<br>
+                                (required)<br>
+                                Email: String,<br>
+                                (required)<br>
+                                Birthday: Date<br>
+                                }
+                            </p>
+                        </td>
+                        <td>Updated JSON Object</td>
                     </tr>
                     <tr>
                         <td>Allow users to add a movie to their list of favorites</td>
-                        <td>/users/:name/favorites</td>
+                        <td>/users/:Username/movies/:MovieID</td>
                         <td>POST</td>
-                        <td>:name</td>
+                        <td>:Username, :MovieID</td>
                         <td>none</td>
-                        <td>Response Message</td>
+                        <td>Updated JSON Object</td>
                     </tr>
                     <tr>
                         <td>Allow users to remove a movie from their list of favorites</td>
-                        <td>/users/:name/favorites</td>
+                        <td>/users/:Username/movies/:MovieID</td>
                         <td>DELETE</td>
-                        <td>:name</td>
+                        <td>:Username, :MovieID</td>
                         <td>none</td>
                         <td>Response Message</td>
                     </tr>
                     <tr>
                         <td>Allow existing users to deregister</td>
-                        <td>/users/:name</td>
+                        <td>/users/:Username</td>
                         <td>DELETE</td>
-                        <td>:name</td>
+                        <td>:Username</td>
                         <td>none</td>
                         <td>Response Message</td>
                     </tr>
