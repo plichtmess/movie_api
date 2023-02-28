@@ -22,6 +22,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// importing the auth.js file with login endpoint
+let auth = require('./auth')(app);
+
 // logging requests via morgan
 app.use(morgan('common'));
 
