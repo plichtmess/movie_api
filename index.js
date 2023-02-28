@@ -25,6 +25,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // importing the auth.js file with login endpoint
 let auth = require('./auth')(app);
 
+// requiring the passport module and importing passport.js file
+const passport = require('passport');
+require('./passport');
+
 // logging requests via morgan
 app.use(morgan('common'));
 
