@@ -154,7 +154,7 @@ app.get('/users', (req, res) => {
 app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOne({ Username: req.params.Username })
     .then((user) => {
-        res.json(user);
+        res.json({Username: user.Username, Email: user.Email });
     })
     .catch((err) => {
         console.error(err);
@@ -222,7 +222,7 @@ app.post('/users', (req, res) => {
                 Email: req.body.Email,
                 Birthday: req.body.Birthday
             })
-            .then((user) => { res.status(201).json(user) })
+            .then((user) => { res.status(201).json({Username: user.Username, Email: user.Email}) })
             .catch((error) => {
                 console.error(error);
                 res.status(500).send('Error: ' + error);
