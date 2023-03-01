@@ -232,12 +232,13 @@ app.post('/users',
     Users.findOne({ Username: req.body.Username }) // search to see if username already exists
     .then((user) => {
         if(user) {
+            // if the user is found, send response that it already exists
             return res.status(400).send(req.body.Username + 'already exists');
         } else {
             Users
             .create({
                 Username: req.body.Username,
-                Password: req.body.Password,
+                Password: hashedPassword,
                 Email: req.body.Email,
                 Birthday: req.body.Birthday
             })
