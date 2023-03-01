@@ -34,6 +34,7 @@ const cors = require('cors');
 
 let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
 
+// allow all domains
 app.use(cors());
 
 // app.use(cors({
