@@ -255,7 +255,7 @@ app.post('/users',
                 Email: req.body.Email,
                 Birthday: req.body.Birthday
             })
-            .then((user) => { res.status(201).json({Username: user.Username, Email: user.Email, ID: user.ID }) })
+            .then((user) => { res.status(201).json(user) })
             .catch((error) => {
                 console.error(error);
                 res.status(500).send('Error: ' + error);
