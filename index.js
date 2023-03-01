@@ -37,6 +37,7 @@ let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
 // allow all domains
 app.use(cors());
 
+// allow allowedOrigins array
 // app.use(cors({
 //     origin: (origin, callback) => {
 //         if(!origin) return callback(null, true);
@@ -148,6 +149,7 @@ let directors = [
 // users JSON object
 let users = [];
 
+// welcome text
 app.get('/', (req, res) => {
     res.send('Welcome to your personal movie collection!');
 });
@@ -164,7 +166,7 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
     });
 });
 
-// get all users
+// get all user data
 app.get('/users', (req, res) => {
     Users.find()
     .then((users) => {
@@ -176,7 +178,7 @@ app.get('/users', (req, res) => {
     });
 });
 
-// get a user by username
+// get user data by username
 app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOne({ Username: req.params.Username })
     .then((user) => {
@@ -201,7 +203,7 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req
 });
 
 // get genre data by name
-// app.get('/genres/:Name', (req, res) => {
+/* app.get('/genres/:Name', (req, res) => {
 //     Genres.findOne({ Name: req.params.Name })
 //     .then((genre) => {
 //         res.json(genre);
@@ -218,6 +220,7 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req
 //         return director.name === req.params.name
 //     }));
 // });
+*/
 
 // add a user
 /* we'll expect JSON in this format:
@@ -372,7 +375,7 @@ app.use((err, req, res, next) => {
     res.status(500).send('Error detected!');
 });
 
-
+// listening on current port (enviromental variable)
 const port = process.env.PORT || 8080;
 app.listen(port, '0.0.0.0',() => {
     console.log('Listening on port ' + port);
