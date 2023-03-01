@@ -231,7 +231,7 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req
 app.post('/users',
     // validation logic
     [
-        check('Username', 'Username is required').isLength({min: 5}),
+        check('Username', 'Username must be at least 5 characters long.').isLength({min: 5}),
         check('Username', 'Username contains non-alphanumeric characters - not allowed.').isAlphanumeric(),
         check('Password', 'Password is required').not().isEmpty(),
         check('Email', 'Email does not appear to be valid').isEmail()
@@ -285,7 +285,7 @@ app.post('/users',
 app.put('/users/:Username', 
     // validation logic
     [
-        check('Username', 'Username is required').isLength({min: 5}),
+        check('Username', 'Username must be at least 5 characters long.').isLength({min: 5}),
         check('Username', 'Username contains non-alphanumeric characters - not allowed.').isAlphanumeric(),
         check('Password', 'Password is required').not().isEmpty(),
         check('Email', 'Email does not appear to be valid').isEmail()
@@ -298,7 +298,7 @@ app.put('/users/:Username',
          if (!errors.isEmpty()) {
              return res.status(422).json({ errors: errors.array() });
          }
-         
+
     Users.findOneAndUpdate({ Username: req.params.Username }, { $set:
     {
         Username: req.body.Username,
