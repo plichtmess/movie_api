@@ -205,13 +205,6 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req
 //     });
 // });
 
-// // Return data about a genre (description) by name/title (e.g., “Thriller”)
-// app.get('/genres/:name', (req, res) => {
-//     res.json(genres.find((genre) => {
-//         return genre.name === req.params.name
-//     }));
-// });
-
 // Return data about a director (bio, birth year, death year) by name
 // app.get('/directors/:name', (req, res) => {
 //     res.json(directors.find((director) => {
