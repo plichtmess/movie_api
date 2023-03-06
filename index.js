@@ -253,17 +253,17 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { sess
 
 // delete a movie from favorites by title
 app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
-    Movies.findOneAndRemove({ Username: req.params.Username })
-    .then((movie) => {
-        if (!movie) {
-            res.status(400).send(req.params.MovieID + ' was not found.')
+    Users.findOneAndUpdate({ Username: req.params.Username }, {
+        $pull: { FavoriteMovies: req.params.MovieID }
+    },
+    { new: true }, // this line makes sure that the updated document is returned
+    (err, updatedUser) => {
+        if(err) {
+            console.error(err);
+            res.status(500).send('Error: ' + err);
         } else {
-            res.status(200).send(req.params.MovieID + ' was removed.');
+            res.json(updatedUser);
         }
-    })
-    .catch((err) => {
-        console.error(err);
-        res.status(500).send('Error: ' + err);
     });
 });
 
