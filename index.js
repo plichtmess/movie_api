@@ -36,6 +36,14 @@ const cors = require('cors');
 // allow all domains
 app.use(cors());
 
+// CORS middleware
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    next();
+});
+
 // importing the auth.js file with login endpoint
 let auth = require('./auth')(app);
 
