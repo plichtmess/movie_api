@@ -32,6 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS
 const cors = require('cors');
+
 // allow all domains
 app.use(cors());
 
