@@ -1,7 +1,5 @@
 const express = require('express'),
     morgan = require('morgan'),
-    fs = require('fs'),
-    path = require('path'),
     bodyParser = require('body-parser'),
     uuid = require('uuid'),
     mongoose = require('mongoose');
@@ -15,6 +13,7 @@ const { check, validationResult } = require('express-validator');
 // require models
 const Movies = Models.Movie;
 const Users = Models.User;
+const Genres = Models.Genre;
 
 // mongoose.connect('mongodb://localhost:27017/myFlixDB', {
 //     useNewUrlParser: true, useUnifiedTopology: true
@@ -32,8 +31,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS
 const cors = require('cors');
+
 // allow all domains
 app.use(cors());
+
+// allow allowedOrigins array
+// app.use(cors({
+//     origin: (origin, callback) => {
+//         if(!origin) return callback(null, true);
+//         if(allowedOrigins.indexOf(origin) === -1){ // if a specific origin isn't found on the list
+//         let message = "The CORS policy for this application doesn't allow access from origin " + origin;
+//         return callback(new Error(message), false);
+//         }
+//     return callback(null, true);
+//     }
+// }));
 
 // importing the auth.js file with login endpoint
 let auth = require('./auth')(app);
@@ -78,10 +90,10 @@ app.get('/users', (req, res) => {
 });
 
 // get user data by username
-app.get('/users/:username', passport.authenticate('jwt', { session: false }), (req, res) => {
-    Users.findOne({ username: req.params.Username })
+app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Users.findOne({ Username: req.params.Username })
         .then((user) => {
-            res.json({ username: user.Username, email: user.Email });
+            res.json({ Username: user.Username, Email: user.Email });
         })
         .catch((err) => {
             console.error(err);
