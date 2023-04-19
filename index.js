@@ -13,7 +13,6 @@ const { check, validationResult } = require('express-validator');
 // require models
 const Movies = Models.Movie;
 const Users = Models.User;
-const Genres = Models.Genre;
 
 // mongoose.connect('mongodb://localhost:27017/myFlixDB', {
 //     useNewUrlParser: true, useUnifiedTopology: true
