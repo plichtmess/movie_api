@@ -81,7 +81,7 @@ app.get('/users', (req, res) => {
 app.get('/users/:username', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOne({ username: req.params.username })
         .then((user) => {
-            res.json({ username: user.Username, email: user.Email });
+            res.json({ username: user.username, email: user.email });
         })
         .catch((err) => {
             console.error(err);
@@ -91,7 +91,7 @@ app.get('/users/:username', passport.authenticate('jwt', { session: false }), (r
 
 // get movie data by title
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
-    Movies.findOne({ title: req.params.Title })
+    Movies.findOne({ title: req.params.title })
         .then((movie) => {
             res.json(movie);
         })
@@ -126,20 +126,20 @@ app.post('/users',
             return res.status(422).json({ errors: errors.array() });
         }
 
-        let hashedPassword = Users.hashPassword(req.body.Password);
+        let hashedPassword = Users.hashPassword(req.body.password);
 
-        Users.findOne({ username: req.body.Username }) // search to see if username already exists
+        Users.findOne({ username: req.body.username }) // search to see if username already exists
             .then((user) => {
                 if (user) {
                     // if the user is found, send response that it already exists
-                    return res.status(400).send(req.body.Username + 'already exists');
+                    return res.status(400).send(req.body.username + 'already exists');
                 } else {
                     Users
                         .create({
-                            username: req.body.Username,
+                            username: req.body.username,
                             password: hashedPassword,
-                            email: req.body.Email,
-                            birthday: req.body.Birthday
+                            email: req.body.email,
+                            birthday: req.body.birthday
                         })
                         .then((user) => { res.status(201).json(user) })
                         .catch((error) => {
