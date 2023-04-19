@@ -128,7 +128,7 @@ app.post('/users',
 
         let hashedPassword = Users.hashPassword(req.body.Password);
 
-        Users.findOne({ Username: req.body.Username }) // search to see if username already exists
+        Users.findOne({ username: req.body.Username }) // search to see if username already exists
             .then((user) => {
                 if (user) {
                     // if the user is found, send response that it already exists
@@ -136,10 +136,10 @@ app.post('/users',
                 } else {
                     Users
                         .create({
-                            Username: req.body.Username,
-                            Password: hashedPassword,
-                            Email: req.body.Email,
-                            Birthday: req.body.Birthday
+                            username: req.body.Username,
+                            password: hashedPassword,
+                            email: req.body.Email,
+                            birthday: req.body.Birthday
                         })
                         .then((user) => { res.status(201).json(user) })
                         .catch((error) => {
