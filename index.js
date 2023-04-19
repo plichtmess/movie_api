@@ -18,6 +18,8 @@ const Users = Models.User;
 //     useNewUrlParser: true, useUnifiedTopology: true
 // });
 
+mongoose.set('strictQuery', false);
+
 mongoose.connect(process.env.CONNECTION_URI, {
     useNewUrlParser: true, useUnifiedTopology: true
 });
