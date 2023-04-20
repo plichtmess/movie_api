@@ -124,7 +124,7 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req
 
 // get movie data by ID
 app.get('/movies/:_id', passport.authenticate('jwt', { session: false }), (req, res) => {
-    Movies.findOne({ id: req.params._id })
+    Movies.findOne({ _id: req.params._id })
         .then((movie) => {
             res.json(movie);
         })
