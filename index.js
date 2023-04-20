@@ -99,7 +99,7 @@ app.get('/users', (req, res) => {
 });
 
 // get user data by username
-app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/users/:sername', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOne({ Username: req.params.Username })
         .then((user) => {
             res.json({ Username: user.Username, Email: user.Email });
