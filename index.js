@@ -99,7 +99,7 @@ app.get('/users', (req, res) => {
 });
 
 // get user data by username
-app.get('/users/:sername', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOne({ Username: req.params.Username })
         .then((user) => {
             res.json({ Username: user.Username, Email: user.Email });
@@ -113,6 +113,18 @@ app.get('/users/:sername', passport.authenticate('jwt', { session: false }), (re
 // get movie data by title
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
     Movies.findOne({ Title: req.params.Title })
+        .then((movie) => {
+            res.json(movie);
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send('Error: ' + err);
+        });
+});
+
+// get movie data by ID
+app.get('/movies/:_id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Movies.findOne({ id: req.params._id })
         .then((movie) => {
             res.json(movie);
         })
